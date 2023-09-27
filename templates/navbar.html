@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+{% endblock %}
+
+{% block body %}
+    <nav>
+        <div class="navbar">
+            <div class="logo"><a href="#">LineageLoom</a></div>
+
+            <ui class="menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Add Person</a></li>
+                <li><a href="">Visualize</a></li>
+                <li><a href="">Database</a></li>
+            </ui>
+        </div>
+    </nav>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}LineageLoom Database{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Database.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="body">
+        <div class="table">
+            <div class="table_header">
+                <div class="header_home">
+                    <a href="/" class="home btn"><i class="fa-solid fa-house"></i></a>
+                    <p>LineageLoom Database</p>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search...">
+                    <button class="search btn">Search</button>
+                </div>
+            </div>
+
+            <div class="table_body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>National ID</th>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Phone</th>
+                            <th>Gender</th>
+                            <th>Alive</th>
+                            <th>Father NID</th>
+                            <th>Mother NID</th>
+                            <th>Spouse NID</th>
+                            <th>Date Created</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for person in persons %}
+                            <tr>
+                                <td>{{ person.nid }} </td>
+                                <td>{{ person.name }}</td>
+                                <td>{{ person.dob }}</td>
+                                <td>{{ person.phone }}</td>
+                                <td>{{ person.gender }}</td>
+                                <td>{{ person.alive }}</td>
+                                <td>{{ person.father_nid }}</td>
+                                <td>{{ person.mother_nid }}</td>
+                                <td>{{ person.spouse_nid }}</td>
+                                <td>{{ person.created_at }}</td>
+                                <td class="action">
+                                    <a class="btn" href="/update_person/12333546"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="btn" href="/delete_person/12333546"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bottom_bar">
+                <div class="add_person">
+                    <a href="/add_person">Add a Person</a>
+                </div>
+                <div class="pagination">
+                    <div><i class="fa-solid fa-angles-left"></i></div>
+                    <div><i class="fa-solid fa-angle-left"></i></div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div><i class="fa-solid fa-angle-right"></i></div>
+                    <div><i class="fa-solid fa-angles-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
