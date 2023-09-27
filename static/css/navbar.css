@@ -7,59 +7,175 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    /* ===== Colors ====== */
+    --primary-color: #007bff;
+    --panel-color: #ffffff;
+    --text-color: #212529;
+    --black-light-color: #707070;
+    --border-color: #dee2e6;
+    --toggle-color: #ddd;
+    --box1-color: #4da4ff;
+    --box2-color: #ffe6ac;
+    --box3-color: #e7d1fc;
+    --title-icon-color: #fff;
+
+    /* ===== Transitions ====== */
+    --trans-05: all 0.5s ease;
+    --trans-03: all 0.3s ease;
+    --trans-02: all 0.2s ease;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--primary-color);
+}
+
+body.dark {
+    /* ===== Colors ====== */
+    --primary-color: #3a3b3c;
+    --panel-color: #242526;
+    --text-color: #ccc;
+    --black-light-color: #ccc;
+    --border-color: #4d4c4c;
+    --toggle-color: #fff;
+    --box1-color: #3a3b3c;
+    --box2-color: #3a3b3c;
+    --box3-color: #3a3b3c;
+    --title-icon-color: #ccc;
+}
+
 nav {
     position: fixed;
-    left: 0;
     top: 0;
-    height: 75px;
-    width: 100%;
-    background: #2980b9;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-nav .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
+    left: 0;
     height: 100%;
-    width: 90%;
-    background: #2980b9;
-    margin: auto;
+    width: 250px;
+    padding: 10px 14px;
+    background-color: var(--panel-color);
 }
 
-nav .navbar .logo a {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-nav .navbar .menu {
+nav .logo-name {
     display: flex;
+    align-items: center;
+
 }
 
-nav .navbar .menu li {
+nav .logo-image {
+    display: flex;
+    justify-content: center;
+    min-width: 45px;
+}
+
+nav .logo-image p {
+    width: 40px;
+    background-color: #007bff;
+    object-fit: cover;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--title-icon-color);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+nav .logo-name .logo_name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-left: 14px;
+}
+
+nav .menu-items {
+    margin-top: 40px;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-items li {
     list-style: none;
-    margin: 0 15px;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-
 }
 
-nav .navbar .menu li:hover {
-    background-color: #0077b3;
-}
-
-nav .navbar .menu li:active {
-    background-color: #005580;
-}
-
-nav .navbar .menu li a {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
+.menu-items li a {
+    display: flex;
+    align-items: center;
+    height: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links li a:hover:before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color:  var(--primary-color);
+
+}
+
+.menu-items li a i {
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-light-color);
+}
+
+.menu-items li a .link-name {
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 10px;
+    color: var(--black-light-color);
+}
+
+.nav-links li a:hover i,
+.nav-links li a:hover .link-name {
+    color: var(--primary-color);
+}
+
+.menu-items .mode {
+    display: flex;
+    align-items: center;
+}
+
+.menu-items .mode-toggle {
+    position: absolute;
+    right: 14px;
+    height: 50px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mode-toggle .switch {
+    position: relative;
+    display: inline-block;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+
+.switch:before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%); 
+    height: 15px;
+    width: 15px;
+    background-color: var(--panel-color);
+    border-radius: 50%;
+    transition: var(--trans-03);
+}
+
+body.dark .switch:before {
+    left: 20px;
 }

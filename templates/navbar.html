@@ -5,16 +5,70 @@
 {% endblock %}
 
 {% block body %}
-    <nav>
-        <div class="navbar">
-            <div class="logo"><a href="#">LineageLoom</a></div>
+<nav>
+    <div class="logo-name">
+        <!-- <div class="logo-image">
+            <p>LL</p>
+        </div> -->
 
-            <ui class="menu">
-                <li><a href="">Home</a></li>
-                <li><a href="">Add Person</a></li>
-                <li><a href="">Visualize</a></li>
-                <li><a href="">Database</a></li>
-            </ui>
-        </div>
-    </nav>
+        <span class="logo_name">LineageLoom</span>
+    </div>
+    
+    <div class="menu-items">
+        <ul class="nav-links">
+            <li>
+                <a href="/">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-folder-tree"></i>
+                    <span class="link-name">Visualization</span>
+                </a>
+            </li>
+            <li>
+                <a href="/database">
+                    <i class="fa-solid fa-database"></i>
+                    <span class="link-name">Database</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span class="link-name">Activity</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-plus"></i>
+                    <span class="link-name">Add User</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout-mode">
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="link-name">Logout</span>
+                </a>
+            </li>
+            <li class="mode">
+                <a href="#">
+                    <i class="fa-solid fa-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+                <div class="mode-toggle">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 {% endblock %}
