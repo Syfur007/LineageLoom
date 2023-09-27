@@ -13,6 +13,12 @@ class Person(db.Model):
     age = db.Column(db.Integer, nullable=False)
 
 
+class Action(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(80), nullable=False)
+    user = db.Column(db.Integer, nullable=False)
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -24,7 +30,8 @@ def createPerson():
         name = request.form['name']
         age = request.form['age']
         person = Person(name=name, age=age)
-        db.session.add(person)
+        action = Action(type='add', user=1)
+        db.session.add(person, action)
         db.session.commit()
         return redirect(url_for('database'))
     return render_template('add.html')
