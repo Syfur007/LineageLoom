@@ -1,33 +1,4 @@
-const form = document.querySelector("form"),
-        nextBtn = form.querySelector(".nextBtn"),
-        backBtn = form.querySelector(".backBtn"),
-        allInput = form.querySelectorAll(".first input[required]");
-
-
-nextBtn.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevent the form from being submitted
-
-    // Check if all required fields are filled
-    if (validateRequiredFields()) {
-        form.classList.add('secActive');
-    } else {
-        alert("Please fill in all required fields before proceeding.");
-    }
-});
-
-// Function to validate required fields
-function validateRequiredFields() {
-    let isValid = true;
-    allInput.forEach((input) => {
-        if (input.value.trim() === "") {
-            isValid = false;
-        }
-    });
-    return isValid;
-}
-
-backBtn.addEventListener("click", () => form.classList.remove('secActive'));
-
+const form = document.querySelector("form");
 
 const districts = {
     Dhaka: ["Dhaka", "Gazipur", "Narayanganj", "Tangail", "Munshiganj", "Manikganj", "Rajbari", "Faridpur", "Kishoreganj", "Shariatpur", "Madaripur"],
@@ -47,7 +18,7 @@ function updateDistricts() {
     const selectedDivision = divisionSelect.value;
 
     // Clear previous options in the district dropdown
-    districtSelect.innerHTML = "<option value=''>Select District</option>";
+    districtSelect.innerHTML = "<option hidden>Select District</option>";
 
     // Populate the district dropdown with options based on the selected division
     if (selectedDivision !== "") {

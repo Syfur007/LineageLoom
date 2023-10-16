@@ -16,7 +16,7 @@
                 <input type="text" placeholder="Search here...">
             </div>
             
-            <img src="profile.png" alt="">
+            <img src="{{ url_for('static', filename='profile.png') }}" alt="">
         </div>
         <div class="dash-content">
             <div class="overview">
@@ -57,9 +57,6 @@
                         <span class="data-list">Deepa Chand</span>
                         <span class="data-list">Manisha Chand</span>
                         <span class="data-list">Pratima Shahi</span>
-                        <span class="data-list">Man Shahi</span>
-                        <span class="data-list">Ganesh Chand</span>
-                        <span class="data-list">Bikash Chand</span>
                     </div>
                     <div class="data email">
                         <span class="data-title">User Email</span>
@@ -70,9 +67,6 @@
                         <span class="data-list">deepachand@gmail.com</span>
                         <span class="data-list">prakashhai@gmail.com</span>
                         <span class="data-list">manishachand@gmail.com</span>
-                        <span class="data-list">pratimashhai@gmail.com</span>
-                        <span class="data-list">manshahi@gmail.com</span>
-                        <span class="data-list">ganeshchand@gmail.com</span>
                     </div>
                     <div class="data joined">
                         <span class="data-title">Time</span>
@@ -83,9 +77,6 @@
                         <span class="data-list">2022-02-12</span>
                         <span class="data-list">2022-02-13</span>
                         <span class="data-list">2022-02-13</span>
-                        <span class="data-list">2022-02-14</span>
-                        <span class="data-list">2022-02-14</span>
-                        <span class="data-list">2022-02-15</span>
                     </div>
                     <div class="data type">
                         <span class="data-title">Type</span>
@@ -95,9 +86,6 @@
                         <span class="data-list">Added New Person</span>
                         <span class="data-list">New User</span>
                         <span class="data-list">Added New Person</span>
-                        <span class="data-list">New User</span>
-                        <span class="data-list">New User</span>
-                        <span class="data-list">Modified a Person</span>
                         <span class="data-list">New User</span>
                     </div>
                     <div class="data status">
@@ -109,16 +97,9 @@
                         <span class="data-list">Success</span>
                         <span class="data-list">Success</span>
                         <span class="data-list">Success</span>
-                        <span class="data-list">Success</span>
-                        <span class="data-list">Success</span>
-                        <span class="data-list">Success</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 {% endblock %}

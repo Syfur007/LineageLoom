@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Create Person{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}">
+{% endblock %}
+
+{% block body %}
+{% include "navbar.html" %}
+
+<section class="container">
+    
+    <!-- <header>Registration Form</header> -->
+    <form action="/add_person" method="POST" enctype="multipart/form-data" class="form">
+        <div class="input-box">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Enter full name" required />
+        </div>
+
+        <!-- <div class="input-box">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Enter email address" required />
+        </div> -->
+
+        <div class="column">
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="text" name="phone" placeholder="Enter phone number" required />
+            </div>
+            <div class="input-box">
+                <label>Birth Date</label>
+                <input type="date" name="birthday" placeholder="Enter birth date" required />
+            </div>
+        </div>
+        <div class="input-box">
+            <label>National ID Card</label>
+            <input type="text" name="nid" placeholder="Enter NID number" required />
+        </div>
+        <div class="gender-box">
+            <h3>Gender</h3>
+            <div class="gender-option">
+                <div class="gender">
+                    <input type="radio" value="Male" id="check-male" name="gender" checked />
+                    <label for="check-male">Male</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" value="Female" id="check-female" name="gender" />
+                    <label for="check-female">Female</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" value="Other" id="check-other" name="gender" />
+                    <label for="check-other">prefer not to say</label>
+                </div>
+            </div>
+        </div>
+        <div class="input-box address">
+            <label>Address</label>
+            <input type="text" name="address" placeholder="Enter street address" required />
+            <div class="column">
+                <div class="select-box">
+                    <select name="country">
+                        <option hidden>Country</option>
+                        <option>Bangladesh</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <select name="division" id="division" onchange="updateDistricts()">
+                        <option hidden>Select Division</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Barishal">Barishal</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select-box">
+                    <select name="district" id="district">
+                        <option hidden>Select District</option>
+                    </select>
+                </div>
+                <input type="number" name="postcode" placeholder="Enter postal code" required />
+            </div>
+        </div>
+        <button>Submit</button>
+    </form>
+</section>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/registration.js') }}"></script>
+{% endblock %}
